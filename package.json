@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com/mihaigabrieldavid"
   },
   "author": "Mihai-Gabriel David",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
