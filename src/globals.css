@@ -1,0 +1,14 @@
+* {
+  outline: 0 !important;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.euiFormRow__labelWrapper {
+  align-items: center !important;
+  height: 17px !important;
+}
