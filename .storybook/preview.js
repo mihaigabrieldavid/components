@@ -1,5 +1,5 @@
 import "@elastic/eui/dist/eui_theme_light.css";
-import "../src/globals.css";
+import "./globals.css";
 import { EuiContext, EuiProvider } from "@elastic/eui";
 import { useGlobals } from "@storybook/client-api";
 import { i18nMapping } from "../src";

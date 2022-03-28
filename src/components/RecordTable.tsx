@@ -43,7 +43,7 @@ export const RecordTable = <T extends {}>({
   const pagination: Pagination = {
     totalItemCount: 0,
     pageIndex: 0,
-    pageSize: "all",
+    pageSize: 0,
     showPerPageOptions: false,
   };
 

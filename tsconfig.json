@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "dom"],
+    "declaration": true,
+    "declarationDir": "./dist/typings/",
+    "outDir": "./dist/esm/",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "alwaysStrict": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationDir": "types",
     "sourceMap": true,
-    "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "isolatedModules": true
   },
-  "include": ["src"],
+  "files": ["./src/index.ts"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
