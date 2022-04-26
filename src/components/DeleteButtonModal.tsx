@@ -9,13 +9,13 @@ export const DeleteButtonModal = ({
   onCancel,
   onConfirm,
 }: DeleteButtonModalProps) => {
-  const title = useEuiI18n("deleteButton.title", "Te rugăm să confirmi");
+  const title = useEuiI18n("deleteButtonModal.title", "Te rugăm să confirmi");
   const body = useEuiI18n(
-    "deleteButton.body",
+    "deleteButtonModal.body",
     "Această acțiune este ireversibilă. Dorești să continui?"
   );
-  const confirm = useEuiI18n("deleteButton.confirm", "Da, continui");
-  const cancel = useEuiI18n("deleteButton.cancel", "Nu, renunț");
+  const confirm = useEuiI18n("deleteButtonModal.confirm", "Da, continui");
+  const cancel = useEuiI18n("deleteButtonModal.cancel", "Nu, renunț");
 
   return (
     <EuiConfirmModal

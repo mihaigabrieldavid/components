@@ -16,12 +16,15 @@ export type PermissionButtonModalProps = {
 export const PermissionButtonModal = ({
   onClose,
 }: PermissionButtonModalProps) => {
-  const title = useEuiI18n("permissionButton.title", "Acțiune restricționată");
+  const title = useEuiI18n(
+    "permissionButtonModal.title",
+    "Acțiune restricționată"
+  );
   const body = useEuiI18n(
-    "permissionButton.body",
+    "permissionButtonModal.body",
     "Nu ai permisiunea necesară pentru a efectua această acțiune"
   );
-  const close = useEuiI18n("permissionButton.close", "Închide");
+  const close = useEuiI18n("permissionButtonModal.close", "Închide");
 
   return (
     <EuiModal onClose={onClose}>
