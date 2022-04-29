@@ -9,65 +9,80 @@ import { RecordsTable } from "../src";
 
 export const pageBodySideNavItems = [
   {
-    id: "Configurări",
-    name: "Configurări",
+    id: "Meniu aplicație",
+    name: "Meniu aplicație",
     items: [
       {
-        id: "Email",
-        name: "Email",
-        onClick: action("onClick"),
+        id: "Configurări",
+        name: "Configurări",
+        items: [
+          {
+            id: "Email",
+            name: "Email",
+            items: [],
+            onClick: action("onClick"),
+          },
+          {
+            id: "Spațiu de lucru",
+            name: "Spațiu de lucru",
+            items: [],
+            onClick: action("onClick"),
+          },
+          {
+            id: "Alte configurări",
+            name: "Alte configurări",
+            items: [],
+            onClick: action("onClick"),
+          },
+        ],
       },
       {
-        id: "Workspace",
-        name: "Workspace",
-        onClick: action("onClick"),
+        id: "Setări",
+        name: "Setări",
+        items: [
+          {
+            id: "Securitate",
+            name: "Securitate",
+            items: [],
+            onClick: action("onClick"),
+          },
+          {
+            id: "Plăți",
+            name: "Plăți",
+            items: [],
+            onClick: action("onClick"),
+          },
+          {
+            id: "Abonament",
+            name: "Abonament",
+            items: [],
+            onClick: action("onClick"),
+          },
+          {
+            id: "Facturi",
+            name: "Facturi",
+            items: [],
+            onClick: action("onClick"),
+          },
+        ],
       },
       {
-        id: "Alte configurări",
-        name: "Alte configurări",
-        onClick: action("onClick"),
-      },
-    ],
-  },
-  {
-    id: "Setări",
-    name: "Setări",
-    items: [
-      {
-        id: "Securitate",
-        name: "Securitate",
-        onClick: action("onClick"),
-      },
-      {
-        id: "Plăți",
-        name: "Plăți",
-        onClick: action("onClick"),
-      },
-      {
-        id: "Abonament",
-        name: "Abonament",
-        onClick: action("onClick"),
-      },
-      {
-        id: "Facturi",
-        name: "Facturi",
-        onClick: action("onClick"),
-      },
-    ],
-  },
-  {
-    id: "Integrări",
-    name: "Integrări",
-    items: [
-      {
-        id: "Api",
-        name: "Api",
-        onClick: action("onClick"),
-      },
-      {
-        id: "Documentație",
-        name: "Documentație",
-        onClick: action("onClick"),
+        id: "Integrări",
+        name: "Integrări",
+        items: [
+          {
+            id: "Api",
+            name: "Api",
+            items: [],
+            onClick: action("onClick"),
+          },
+          {
+            id: "Documentație",
+            name: "Documentație",
+            items: [],
+            onClick: action("onClick"),
+          },
+        ],
       },
     ],
   },

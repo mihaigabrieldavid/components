@@ -47,7 +47,9 @@ export const Records = ({
     <EuiFlexItem grow={false}>
       <EuiHeaderBreadcrumbs
         breadcrumbs={breadcrumbs}
-        truncate={false}
+        truncate={true}
+        responsive={false}
+        max={3}
         css={{ marginLeft: 0 }}
       />
 
@@ -60,7 +62,7 @@ export const Records = ({
       >
         <EuiFlexItem grow={true}>
           <EuiTitle size="m">
-            <h1 style={{ minHeight: 40 }}>{title}</h1>
+            <h1 style={{ lineHeight: "40px", height: 40 }}>{title}</h1>
           </EuiTitle>
         </EuiFlexItem>
         {status === "loaded" && (

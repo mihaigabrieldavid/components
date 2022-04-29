@@ -22,6 +22,7 @@ stories.add(`Example`, () => (
         initialIsFlyoutOpen={false}
         title="Meniu aplicație"
         items={pageBodySideNavItems}
+        selectedItemId=""
       />
     </PageBodySide>
     <PageBodyContent>

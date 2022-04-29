@@ -1,4 +1,4 @@
-import { EuiFlexItem } from "@elastic/eui";
+import { EuiFlexGroup, EuiFlexItem, EuiShowFor } from "@elastic/eui";
 import { ReactNode } from "react";
 
 export type PageBodySideProps = {
@@ -7,11 +7,34 @@ export type PageBodySideProps = {
 
 export const PageBodySide = ({ children }: PageBodySideProps) => {
   return (
-    <EuiFlexItem
-      grow={false}
-      css={{ paddingBottom: 16, paddingRight: 32, width: 230, minWidth: 230 }}
-    >
-      {children}
-    </EuiFlexItem>
+    <>
+      <EuiShowFor sizes={["m", "l", "xl"]}>
+        <EuiFlexItem
+          grow={false}
+          css={{
+            paddingBottom: 16,
+            paddingRight: 32,
+            width: 230,
+            minWidth: 230,
+          }}
+        >
+          {children}
+        </EuiFlexItem>
+      </EuiShowFor>
+      <EuiShowFor sizes={["xs", "s"]}>
+        <EuiFlexGroup
+          direction="row"
+          responsive={false}
+          alignItems="center"
+          justifyContent="spaceBetween"
+          gutterSize="none"
+          css={{
+            paddingBottom: 32,
+          }}
+        >
+          {children}
+        </EuiFlexGroup>
+      </EuiShowFor>
+    </>
   );
 };

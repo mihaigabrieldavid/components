@@ -32,22 +32,25 @@ const stories = storiesOf("Page", module);
 
 const items = [
   {
-    id: "Contul meu",
-    name: "Contul meu",
+    id: "Meniu contul meu",
+    name: "Meniu contul meu",
     items: [
       {
         id: "Utilizator",
         name: "Utilizator",
+        items: [],
         onClick: action("onClick"),
       },
       {
         id: "Spații de lucru",
         name: "Spații de lucru",
+        items: [],
         onClick: action("onClick"),
       },
       {
         id: "Tichete",
         name: "Tichete",
+        items: [],
         onClick: action("onClick"),
       },
     ],
@@ -72,20 +75,21 @@ stories.add(`Example`, () => (
     <PageBody background="#FFFFFF">
       <PageBodySide>
         <PageBodySideHeader
-          item={{ id: "1", name: "My workspace" }}
+          item={{ id: "1", name: "Spațiu de lucru" }}
           initialIsPopoverOpen={false}
           items={[
-            { id: "1", name: "My workspace" },
-            { id: "2", name: "Workspace 2" },
-            { id: "3", name: "Workspace 3" },
+            { id: "1", name: "Spațiu de lucru" },
+            { id: "2", name: "Spațiu de lucru 2" },
+            { id: "3", name: "Spațiu de lucru 3" },
           ]}
           noItemsMessage=""
           onClick={action("onClick")}
         />
         <PageBodySideNav
           initialIsFlyoutOpen={false}
-          title="Meniu aplicație"
+          title=""
           items={pageBodySideNavItems}
+          selectedItemId="Email"
         />
       </PageBodySide>
       <PageBodyContent>
@@ -169,6 +173,7 @@ stories.add(`Example 3`, () => (
           initialIsFlyoutOpen={false}
           title="Meniu contul meu"
           items={items}
+          selectedItemId="Tichete"
         />
       </PageBodySide>
       <PageBodyContent>
@@ -237,16 +242,17 @@ stories.add(`Example 4`, () => (
     <PageBody background="#FFFFFF">
       <PageBodySide>
         <PageBodySideHeader
-          item={{ id: "1", name: "My workspace" }}
+          item={{ id: "1", name: "Spațiu de lucru" }}
           initialIsPopoverOpen={false}
-          items={[{ id: "1", name: "My workspace" }]}
-          noItemsMessage="Creează un nou workspace și o să apară aici în meniu"
+          items={[{ id: "1", name: "Spațiu de lucru" }]}
+          noItemsMessage="Creează un nou spațiu de lucru și o să apară aici în meniu"
           onClick={action("onClick")}
         />
         <PageBodySideNav
           initialIsFlyoutOpen={false}
-          title="Meniu aplicație"
+          title=""
           items={pageBodySideNavItems}
+          selectedItemId="Abonamente"
         />
       </PageBodySide>
       <PageBodyContent>
@@ -285,16 +291,17 @@ stories.add(`Example 5`, () => (
     <PageBody background="#FFFFFF">
       <PageBodySide>
         <PageBodySideHeader
-          item={{ id: "1", name: "My workspace" }}
+          item={{ id: "1", name: "Spațiu de lucru" }}
           initialIsPopoverOpen={false}
-          items={[{ id: "1", name: "My workspace" }]}
-          noItemsMessage="Creează un nou workspace și o să apară aici în meniu"
+          items={[{ id: "1", name: "Spațiu de lucru" }]}
+          noItemsMessage="Creează un nou spațiu de lucru și o să apară aici în meniu"
           onClick={action("onClick")}
         />
         <PageBodySideNav
           initialIsFlyoutOpen={false}
-          title="Meniu aplicație"
+          title=""
           items={pageBodySideNavItems}
+          selectedItemId="Setări"
         />
       </PageBodySide>
       <PageBodyContent>
@@ -333,20 +340,21 @@ stories.add(`Example 6`, () => (
     <PageBody background="#FFFFFF">
       <PageBodySide>
         <PageBodySideHeader
-          item={{ id: "1", name: "My workspace" }}
+          item={{ id: "1", name: "Spațiu de lucru" }}
           initialIsPopoverOpen={false}
           items={[
-            { id: "1", name: "My workspace" },
-            { id: "2", name: "Workspace 2" },
-            { id: "3", name: "Workspace 3" },
+            { id: "1", name: "Spațiu de lucru" },
+            { id: "2", name: "Spațiu de lucru 2" },
+            { id: "3", name: "Spațiu de lucru 3" },
           ]}
           noItemsMessage=""
           onClick={action("onClick")}
         />
         <PageBodySideNav
           initialIsFlyoutOpen={false}
-          title="Meniu aplicație"
+          title=""
           items={pageBodySideNavItems}
+          selectedItemId=""
         />
       </PageBodySide>
       <PageBodyContent>
@@ -389,20 +397,21 @@ stories.add(`Example 7`, () => (
     <PageBody background="#FFFFFF">
       <PageBodySide>
         <PageBodySideHeader
-          item={{ id: "1", name: "My workspace" }}
+          item={{ id: "1", name: "Spațiu de lucru" }}
           initialIsPopoverOpen={false}
           items={[
-            { id: "1", name: "My workspace" },
-            { id: "2", name: "Workspace 2" },
-            { id: "3", name: "Workspace 3" },
+            { id: "1", name: "Spațiu de lucru" },
+            { id: "2", name: "Spațiu de lucru 2" },
+            { id: "3", name: "Spațiu de lucru 3" },
           ]}
           noItemsMessage=""
           onClick={action("onClick")}
         />
         <PageBodySideNav
           initialIsFlyoutOpen={false}
-          title="Meniu aplicație"
+          title=""
           items={pageBodySideNavItems}
+          selectedItemId=""
         />
       </PageBodySide>
       <PageBodyContent>
@@ -493,7 +502,7 @@ stories.add(`Example 11`, () => (
     <PageBody background="#F4F6FA">
       <InvitationToCollaborate
         userName="Popescu Cristian"
-        subtitle="Nume workspace"
+        subtitle="Nume spațiu de lucru"
         message="Te-a invitat să colaborezi cu el"
         email="john.doe@domain.com"
         status="signUp"
@@ -525,7 +534,7 @@ stories.add(`Example 12`, () => (
     <PageBody background="#F4F6FA">
       <InvitationToCollaborate
         userName="Popescu Cristian"
-        subtitle="Nume workspace"
+        subtitle="Nume spațiu de lucru"
         message="Te-a invitat să colaborezi cu el"
         email="john.doe@domain.com"
         status="accept"

@@ -1,7 +1,8 @@
 import {
-  EuiButton,
+  EuiButtonEmpty,
   EuiCollapsibleNav,
   EuiFlexItem,
+  EuiIcon,
   EuiShowFor,
   EuiSideNav,
 } from "@elastic/eui";
@@ -10,7 +11,8 @@ import { useEffect, useState } from "react";
 export type PageBodySideNavItem = {
   id: string;
   name: string;
-  items?: PageBodySideNavItem[];
+  items: PageBodySideNavItem[];
+  isSelected?: boolean;
   onClick?: () => void;
 };
 
@@ -18,35 +20,44 @@ export type PageBodySideNavProps = {
   initialIsFlyoutOpen: boolean;
   title: string;
   items: PageBodySideNavItem[];
+  selectedItemId: string;
 };
 
 export const PageBodySideNav = ({
   initialIsFlyoutOpen,
   items,
   title,
+  selectedItemId,
 }: PageBodySideNavProps) => {
   const [isFlyoutOpen, setIsFlyoutOpen] = useState(initialIsFlyoutOpen);
   const [sideNavItems, setSideNavItems] = useState<PageBodySideNavItem[]>([]);
+  const [sideNavSelectedItemId, setSideNavSelectedItemId] = useState("");
 
   useEffect(() => {
-    setSideNavItems(
-      items.map((parent) => {
-        if (parent.items) {
-          parent.items = parent.items.map((child) => {
-            if (child.onClick) {
-              const onClick = child.onClick.bind({});
-              child.onClick = () => {
-                onClick();
-                handleFlyoutClose();
-              };
-            }
-            return child;
-          });
-        }
-        return parent;
-      })
-    );
-  }, [items]);
+    setSideNavSelectedItemId(selectedItemId);
+  }, [selectedItemId]);
+
+  useEffect(() => {
+    setSideNavItems(getItems(items));
+    console.log(getItems(items));
+  }, [items, sideNavSelectedItemId]);
+
+  const getItems = (items: PageBodySideNavItem[]) =>
+    items.map((item) => {
+      if (item.onClick) {
+        const onClick = item.onClick.bind({});
+        item.onClick = () => {
+          onClick();
+          setSideNavSelectedItemId(item.id);
+          if (item.items.length === 0) {
+            handleFlyoutClose();
+          }
+        };
+      }
+      item.isSelected = !!item.onClick && item.id === sideNavSelectedItemId;
+      item.items = getItems(item.items);
+      return item;
+    });
 
   const handleFlyoutClose = () => {
     setIsFlyoutOpen(false);
@@ -66,13 +77,21 @@ export const PageBodySideNav = ({
           isOpen={isFlyoutOpen}
           button={
             <div>
-              <EuiButton
-                color="accent"
-                onClick={handleFlyoutOpen}
-                iconType="apps"
-              >
-                {title}
-              </EuiButton>
+              {title && (
+                <EuiButtonEmpty
+                  flush="left"
+                  iconType="apps"
+                  size="s"
+                  onClick={handleFlyoutOpen}
+                >
+                  {title}
+                </EuiButtonEmpty>
+              )}
+              {!title && (
+                <EuiButtonEmpty flush="right" onClick={handleFlyoutOpen}>
+                  <EuiIcon height={16} color="primary" type="apps" />
+                </EuiButtonEmpty>
+              )}
             </div>
           }
           onClose={handleFlyoutClose}

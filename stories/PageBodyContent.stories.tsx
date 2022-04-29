@@ -1,13 +1,8 @@
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import { Records, RecordsTable } from "../src";
+import { Records } from "../src";
 import { PageBodyContent } from "../src/components/PageBodyContent";
-import {
-  recordsBreadcrumbs,
-  recordsTableColumns,
-  recordsTableFilters,
-  recordsTableItems,
-} from "./content";
+import { recordsBreadcrumbs } from "./content";
 
 const stories = storiesOf("PageBodyContent", module);
 

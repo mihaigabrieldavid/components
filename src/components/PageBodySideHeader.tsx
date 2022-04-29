@@ -5,6 +5,8 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiPopover,
+  EuiShowFor,
+  EuiSpacer,
   EuiTitle,
 } from "@elastic/eui";
 import { useEffect, useState } from "react";
@@ -55,7 +57,7 @@ export const PageBodySideHeader = ({
   };
 
   return (
-    <EuiFlexItem grow={false} css={{ marginBottom: 32 }}>
+    <EuiFlexItem grow={false}>
       <EuiPopover
         button={
           <EuiFlexGroup
@@ -88,9 +90,9 @@ export const PageBodySideHeader = ({
           </EuiFlexGroup>
         }
         isOpen={isPopoverOpen}
-        closePopover={handlePopoverClose}
         panelPaddingSize="none"
         anchorPosition="downLeft"
+        closePopover={handlePopoverClose}
       >
         {filteredItems.length === 0 && (
           <div style={{ maxWidth: 198, padding: 8, lineHeight: 1.5 }}>
@@ -114,6 +116,9 @@ export const PageBodySideHeader = ({
           />
         )}
       </EuiPopover>
+      <EuiShowFor sizes={["m", "l", "xl"]}>
+        <EuiSpacer size="l" />
+      </EuiShowFor>
     </EuiFlexItem>
   );
 };

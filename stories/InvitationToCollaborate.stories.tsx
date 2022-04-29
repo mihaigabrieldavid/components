@@ -13,7 +13,7 @@ stories.add(
   () => (
     <InvitationToCollaborate
       userName="Popescu Cristian"
-      subtitle="Nume workspace"
+      subtitle="Nume spațiu de lucru"
       message="Te-a invitat să colaborezi cu el"
       email="john.doe@domain.com"
       body="Dorești să accepți invitația și să devii un colaborator?"
@@ -40,7 +40,7 @@ stories.add(
 const cases = getCases({
   body: ["Dorești să accepți invitația și să devii un colaborator?"],
   userName: ["Popescu Cristian"],
-  subtitle: ["Nume workspace"],
+  subtitle: ["Nume spațiu de lucru"],
   message: ["Te-a invitat să colaborezi cu el"],
   email: ["john.doe@domain.com"],
   status: [

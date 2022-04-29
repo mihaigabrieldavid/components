@@ -13,6 +13,7 @@ stories.add(`Example`, () => (
     initialIsFlyoutOpen={false}
     items={pageBodySideNavItems}
     title="Meniu aplicație"
+    selectedItemId=""
   />
 ));
 
