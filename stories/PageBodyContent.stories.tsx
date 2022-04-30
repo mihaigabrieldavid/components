@@ -17,6 +17,7 @@ stories.add(`Example`, () => (
       canCreate={false}
       status="error"
       onCreate={action("onCreate")}
+      onUpgrade={action("onUpgrade")}
     >
       records table
     </Records>
@@ -34,6 +35,7 @@ stories.add(`Example 2`, () => (
       canCreate={false}
       status="restrictedView"
       onCreate={action("onCreate")}
+      onUpgrade={action("onUpgrade")}
     >
       records table
     </Records>

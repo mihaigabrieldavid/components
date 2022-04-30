@@ -35,6 +35,7 @@ stories.add(`Example`, () => (
         canCreate={false}
         status="loaded"
         onCreate={action("onCreate")}
+        onUpgrade={action("onUpgrade")}
       >
         <RecordsTable
           pageIndex={0}

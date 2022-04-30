@@ -13,6 +13,7 @@ stories.add(`Example`, () => (
     initialIsModalVisible={false}
     isLoading={false}
     hasPermission={false}
+    isUpgradeRequired={false}
     color="primary"
     onClick={action("onClick")}
   >
@@ -23,6 +24,7 @@ stories.add(`Example`, () => (
 const cases = getCases({
   color: ["danger", undefined],
   hasPermission: [false, true],
+  isUpgradeRequired: [false, true],
   initialIsModalVisible: [true, false],
   isLoading: [false, true],
   onClick: [action("onClick")],

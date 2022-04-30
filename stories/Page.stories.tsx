@@ -102,6 +102,7 @@ stories.add(`Example`, () => (
           canCreate={false}
           status="loaded"
           onCreate={action("onCreate")}
+          onUpgrade={action("onUpgrade")}
         >
           <RecordsTable
             pageIndex={0}
@@ -202,6 +203,7 @@ stories.add(`Example 3`, () => (
           status="loaded"
           onUpdate={action("onUpdate")}
           onDelete={action("onDelete")}
+          onUpgrade={action("onUpgrade")}
         >
           <EuiForm component="form">
             <EuiFormRow label="Nume">
@@ -265,6 +267,7 @@ stories.add(`Example 4`, () => (
           canCreate={false}
           status="empty"
           onCreate={action("onCreate")}
+          onUpgrade={action("onUpgrade")}
         >
           records table
         </Records>
@@ -314,6 +317,7 @@ stories.add(`Example 5`, () => (
           canCreate={false}
           status="error"
           onCreate={action("onCreate")}
+          onUpgrade={action("onUpgrade")}
         >
           records table
         </Records>
@@ -371,6 +375,7 @@ stories.add(`Example 6`, () => (
           status="notFound"
           onUpdate={action("onUpdate")}
           onDelete={action("onDelete")}
+          onUpgrade={action("onUpgrade")}
         >
           form
         </Record>
@@ -544,6 +549,114 @@ stories.add(`Example 12`, () => (
         onSignUp={action("onSignUp")}
         onAgreement={action("onAgreement")}
       />
+    </PageBody>
+  </Page>
+));
+
+stories.add(`Example 13`, () => (
+  <Page>
+    <PageHeader
+      initialIsFlyoutOpen={false}
+      initialIsPopoverOpen={false}
+      userName="Mihai-Gabriel David"
+      logoSrc={pageHeaderLogoSrc}
+      items={pageHeaderItems}
+      onMyAccount={action("onMyAccount")}
+      onSignOut={action("onSignOut")}
+      onSignIn={action("onSignIn")}
+      onTryFree={action("onTryFree")}
+      onApplication={action("onApplication")}
+      onLogo={action("onLogo")}
+    />
+    <PageBody background="#FFFFFF">
+      <PageBodySide>
+        <PageBodySideHeader
+          item={{ id: "1", name: "Spațiu de lucru" }}
+          initialIsPopoverOpen={false}
+          items={[{ id: "1", name: "Spațiu de lucru" }]}
+          noItemsMessage="Creează un nou spațiu de lucru și o să apară aici în meniu"
+          onClick={action("onClick")}
+        />
+        <PageBodySideNav
+          initialIsFlyoutOpen={false}
+          title=""
+          items={pageBodySideNavItems}
+          selectedItemId="Abonamente"
+        />
+      </PageBodySide>
+      <PageBodyContent>
+        <Records
+          breadcrumbs={recordsBreadcrumbs}
+          noItemsText="Nu există facturi de afișat"
+          firstItemText="prima factură"
+          itemText="factură"
+          itemsText="facturi"
+          canCreate={false}
+          status="upgradeRequired"
+          onCreate={action("onCreate")}
+          onUpgrade={action("onUpgrade")}
+        >
+          records table
+        </Records>
+      </PageBodyContent>
+    </PageBody>
+  </Page>
+));
+
+stories.add(`Example 14`, () => (
+  <Page>
+    <PageHeader
+      initialIsFlyoutOpen={false}
+      initialIsPopoverOpen={false}
+      userName="Mihai-Gabriel David"
+      logoSrc={pageHeaderLogoSrc}
+      items={pageHeaderItems}
+      onMyAccount={action("onMyAccount")}
+      onSignOut={action("onSignOut")}
+      onSignIn={action("onSignIn")}
+      onTryFree={action("onTryFree")}
+      onApplication={action("onApplication")}
+      onLogo={action("onLogo")}
+    />
+    <PageBody background="#FFFFFF">
+      <PageBodySide>
+        <PageBodySideHeader
+          item={{ id: "1", name: "Spațiu de lucru" }}
+          initialIsPopoverOpen={false}
+          items={[
+            { id: "1", name: "Spațiu de lucru" },
+            { id: "2", name: "Spațiu de lucru 2" },
+            { id: "3", name: "Spațiu de lucru 3" },
+          ]}
+          noItemsMessage=""
+          onClick={action("onClick")}
+        />
+        <PageBodySideNav
+          initialIsFlyoutOpen={false}
+          title=""
+          items={pageBodySideNavItems}
+          selectedItemId=""
+        />
+      </PageBodySide>
+      <PageBodyContent>
+        <Record
+          actions={[]}
+          breadcrumbs={recordsBreadcrumbs}
+          initialIsPopoverOpen={false}
+          isDeleting={false}
+          isUpdating={false}
+          canDelete={false}
+          canUpdate={false}
+          showDeleteButton={false}
+          itemText="Factură"
+          status="upgradeRequired"
+          onUpdate={action("onUpdate")}
+          onDelete={action("onDelete")}
+          onUpgrade={action("onUpgrade")}
+        >
+          form
+        </Record>
+      </PageBodyContent>
     </PageBody>
   </Page>
 ));

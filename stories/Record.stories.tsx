@@ -68,6 +68,7 @@ stories.add(
       status="loaded"
       onUpdate={action("onUpdate")}
       onDelete={action("onDelete")}
+      onUpgrade={action("onUpgrade")}
     >
       {children}
     </Record>
@@ -95,9 +96,17 @@ const cases = getCases({
   showDeleteButton: [true, false],
   initialIsPopoverOpen: [true, false],
   itemText: ["Factură"],
-  status: ["loading", "error", "restrictedView", "notFound", "loaded"],
+  status: [
+    "loading",
+    "error",
+    "restrictedView",
+    "notFound",
+    "loaded",
+    "upgradeRequired",
+  ],
   onUpdate: [action("onUpdate")],
   onDelete: [action("onDelete")],
+  onUpgrade: [action("onUpgrade")],
 });
 
 cases.forEach((props: any) => {

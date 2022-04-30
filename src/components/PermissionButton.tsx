@@ -5,6 +5,7 @@ import { PermissionButtonModal } from "./PermissionButtonModal";
 export type PermissionButtonProps = {
   initialIsModalVisible: boolean;
   hasPermission: boolean;
+  isUpgradeRequired: boolean;
   children: ReactNode;
   isLoading: boolean;
   color:
@@ -21,6 +22,7 @@ export type PermissionButtonProps = {
 export const PermissionButton = ({
   initialIsModalVisible,
   hasPermission,
+  isUpgradeRequired,
   children,
   color,
   isLoading,
@@ -50,7 +52,12 @@ export const PermissionButton = ({
       >
         {children}
       </EuiButton>
-      {isModalVisible && <PermissionButtonModal onClose={handleClose} />}
+      {isModalVisible && (
+        <PermissionButtonModal
+          isUpgradeRequired={isUpgradeRequired}
+          onClose={handleClose}
+        />
+      )}
     </>
   );
 };

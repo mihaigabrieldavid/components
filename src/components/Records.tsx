@@ -14,6 +14,7 @@ import { ErrorStatus } from "./ErrorStatus";
 import { LoadingStatus } from "./LoadingStatus";
 import { PermissionButton } from "./PermissionButton";
 import { RestrictedViewStatus } from "./RestrictedViewStatus";
+import { UpgradeRequiredStatus } from "./UpgradeRequiredStatus";
 
 export type RecordsProps = {
   itemText: string;
@@ -23,8 +24,15 @@ export type RecordsProps = {
   canCreate: boolean;
   breadcrumbs: EuiBreadcrumb[];
   children: ReactNode;
-  status: "loading" | "error" | "restrictedView" | "empty" | "loaded";
+  status:
+    | "loading"
+    | "error"
+    | "restrictedView"
+    | "empty"
+    | "loaded"
+    | "upgradeRequired";
   onCreate: () => void;
+  onUpgrade: () => void;
 };
 
 export const Records = ({
@@ -37,6 +45,7 @@ export const Records = ({
   breadcrumbs,
   children,
   onCreate,
+  onUpgrade,
 }: RecordsProps) => {
   const create = useEuiI18n("records.create", "Creează");
   const startCreating = useEuiI18n("records.startCreating", "Începe să creezi");
@@ -73,6 +82,7 @@ export const Records = ({
                 isLoading={false}
                 color="primary"
                 hasPermission={canCreate}
+                isUpgradeRequired={false}
                 onClick={onCreate}
               >
                 {create} {itemText}
@@ -101,6 +111,7 @@ export const Records = ({
               isLoading={false}
               color="primary"
               hasPermission={canCreate}
+              isUpgradeRequired={false}
               onClick={onCreate}
             >
               {create} {firstItemText}
@@ -115,6 +126,10 @@ export const Records = ({
       {status === "error" && <ErrorStatus />}
 
       {status === "restrictedView" && <RestrictedViewStatus />}
+
+      {status === "upgradeRequired" && (
+        <UpgradeRequiredStatus onClick={onUpgrade} />
+      )}
     </EuiFlexItem>
   );
 };

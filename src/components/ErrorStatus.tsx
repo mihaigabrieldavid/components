@@ -1,9 +1,4 @@
-import {
-  EuiEmptyPrompt,
-  EuiFlexGroup,
-  EuiFlexItem,
-  useEuiI18n,
-} from "@elastic/eui";
+import { EuiEmptyPrompt, EuiFlexGroup, useEuiI18n } from "@elastic/eui";
 
 export const ErrorStatus = () => {
   const title = useEuiI18n("errorStatus.title", "A apărut o eroare");
@@ -14,15 +9,13 @@ export const ErrorStatus = () => {
 
   return (
     <EuiFlexGroup gutterSize="none" responsive={false} direction="column">
-      <EuiFlexItem grow={false}>
-        <EuiEmptyPrompt
-          iconType="alert"
-          color="danger"
-          title={<h2>{title}</h2>}
-          body={<p>{body}</p>}
-          css={{ width: "100%", maxWidth: "100%" }}
-        />
-      </EuiFlexItem>
+      <EuiEmptyPrompt
+        iconType="alert"
+        color="danger"
+        title={<h2>{title}</h2>}
+        body={<p>{body}</p>}
+        css={{ width: "100%", maxWidth: "100%" }}
+      />
     </EuiFlexGroup>
   );
 };

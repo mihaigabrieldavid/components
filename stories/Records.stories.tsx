@@ -21,6 +21,7 @@ stories.add(
       canCreate={false}
       status="loaded"
       onCreate={action("onCreate")}
+      onUpgrade={action("onUpgrade")}
     >
       {recordsTable}
     </Records>
@@ -48,6 +49,7 @@ stories.add(`Example 2`, () => (
     canCreate={false}
     status="empty"
     onCreate={action("onCreate")}
+    onUpgrade={action("onUpgrade")}
   >
     records table
   </Records>
@@ -60,8 +62,16 @@ const cases = getCases({
   itemText: ["factură"],
   itemsText: ["facturi"],
   canCreate: [true, false],
-  status: ["loading", "error", "restrictedView", "empty", "loaded"],
+  status: [
+    "loading",
+    "error",
+    "restrictedView",
+    "empty",
+    "loaded",
+    "upgradeRequired",
+  ],
   onCreate: [action("onCreate")],
+  onUpgrade: [action("onUpgrade")],
 });
 
 cases.forEach((props: any) => {

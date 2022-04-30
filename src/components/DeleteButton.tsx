@@ -37,6 +37,7 @@ export const DeleteButton = ({
       <PermissionButton
         initialIsModalVisible={false}
         hasPermission={hasPermission}
+        isUpgradeRequired={false}
         color="danger"
         isLoading={isLoading}
         onClick={handleClick}

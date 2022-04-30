@@ -14,12 +14,14 @@ export const i18nMapping = {
     "notFoundStatus.body":
       "Please contact support if you think this is a mistake",
     "permissionButtonModal.title": "Restricted action",
-    "permissionButtonModal.body":
-      "You do not have the required permission to perform this action",
+    "permissionButtonModal.permissionMessage":
+      "You have not been granted the required permission to perform this action",
+    "permissionButtonModal.upgradeMessage":
+      "Upgrade your subscription to perform this action",
     "permissionButtonModal.close": "Close",
     "restrictedViewStatus.title": "Restricted view",
     "restrictedViewStatus.body":
-      "You do not have the required permission to view the content",
+      "You have not been granted the required permission to view the content",
     "record.actions": "Actions",
     "record.update": "Update",
     "record.delete": "Delete",
@@ -85,6 +87,9 @@ export const i18nMapping = {
       "The link is invalid or has expired",
     "invitationToCollaborate.accept": "Accept",
     "invitationToCollaborate.decline": "Decline",
+    "upgradeRequiredStatus.title":
+      "Upgrade your subscription to view the content",
+    "upgradeRequiredStatus.button": "Upgrade",
   },
   ro: {
     "euiBasicTable.noItemsMessage": "Nu sunt rezultate",

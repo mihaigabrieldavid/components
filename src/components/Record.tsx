@@ -19,6 +19,7 @@ import { RestrictedViewStatus } from "./RestrictedViewStatus";
 import { DeleteButton } from "./DeleteButton";
 import { NotFoundStatus } from "./NotFoundStatus";
 import { PermissionButton } from "./PermissionButton";
+import { UpgradeRequiredStatus } from "./UpgradeRequiredStatus";
 
 export type RecordAction = {
   id: string;
@@ -33,13 +34,20 @@ export type RecordProps = {
   canUpdate: boolean;
   children: ReactNode;
   actions: RecordAction[];
-  status: "loading" | "error" | "restrictedView" | "notFound" | "loaded";
+  status:
+    | "loading"
+    | "error"
+    | "restrictedView"
+    | "notFound"
+    | "loaded"
+    | "upgradeRequired";
   isDeleting: boolean;
   isUpdating: boolean;
   showDeleteButton: boolean;
   breadcrumbs: EuiBreadcrumb[];
   onUpdate: () => void;
   onDelete: () => void;
+  onUpgrade: () => void;
 };
 
 export const Record = ({
@@ -56,6 +64,7 @@ export const Record = ({
   breadcrumbs,
   onDelete,
   onUpdate,
+  onUpgrade,
 }: RecordProps) => {
   const actionsText = useEuiI18n("record.actions", "Acțiuni");
   const update = useEuiI18n("record.update", "Actualizează");
@@ -166,6 +175,7 @@ export const Record = ({
                 initialIsModalVisible={false}
                 color="primary"
                 hasPermission={canUpdate}
+                isUpgradeRequired={false}
                 isLoading={isUpdating}
                 onClick={onUpdate}
               >
@@ -195,6 +205,10 @@ export const Record = ({
       {status === "restrictedView" && <RestrictedViewStatus />}
 
       {status === "notFound" && <NotFoundStatus />}
+
+      {status === "upgradeRequired" && (
+        <UpgradeRequiredStatus onClick={onUpgrade} />
+      )}
     </EuiFlexItem>
   );
 };

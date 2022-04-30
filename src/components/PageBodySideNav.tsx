@@ -39,7 +39,6 @@ export const PageBodySideNav = ({
 
   useEffect(() => {
     setSideNavItems(getItems(items));
-    console.log(getItems(items));
   }, [items, sideNavSelectedItemId]);
 
   const getItems = (items: PageBodySideNavItem[]) =>
