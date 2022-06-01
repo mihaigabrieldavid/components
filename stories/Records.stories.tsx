@@ -3,7 +3,7 @@ import { Records } from "../src/components/Records";
 import { addReadme } from "storybook-readme";
 import { action } from "@storybook/addon-actions";
 import { getStoryName, getReadmeText, getCases } from "./utils";
-import { recordsBreadcrumbs, recordsTable } from "./content";
+import { recordsActions, recordsBreadcrumbs, recordsTable } from "./content";
 
 const stories = storiesOf("Records", module);
 
@@ -20,6 +20,8 @@ stories.add(
       itemsText="facturi"
       canCreate={false}
       status="loaded"
+      actions={recordsActions}
+      initialIsPopoverOpen={false}
       onCreate={action("onCreate")}
       onUpgrade={action("onUpgrade")}
     >
@@ -48,6 +50,8 @@ stories.add(`Example 2`, () => (
     itemsText="facturi"
     canCreate={false}
     status="empty"
+    actions={[]}
+    initialIsPopoverOpen={false}
     onCreate={action("onCreate")}
     onUpgrade={action("onUpgrade")}
   >
@@ -57,6 +61,7 @@ stories.add(`Example 2`, () => (
 
 const cases = getCases({
   breadcrumbs: [recordsBreadcrumbs],
+  actions: [[], recordsActions],
   noItemsText: ["Nu există facturi de afișat"],
   firstItemText: ["prima factură"],
   itemText: ["factură"],
@@ -70,6 +75,7 @@ const cases = getCases({
     "loaded",
     "upgradeRequired",
   ],
+  initialIsPopoverOpen: [true, false],
   onCreate: [action("onCreate")],
   onUpgrade: [action("onUpgrade")],
 });

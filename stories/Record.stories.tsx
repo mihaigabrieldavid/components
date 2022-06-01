@@ -28,7 +28,7 @@ const children = (
       <EuiFormRow label="Factură">
         <EuiFieldText name="invoice" />
       </EuiFormRow>
-      <EuiFormRow label="Client" labelAppend={<EuiLink>Pagină client</EuiLink>}>
+      <EuiFormRow label="Client" labelAppend={<EuiLink>Accesează</EuiLink>}>
         <EuiFieldText name="client" />
       </EuiFormRow>
       <EuiFormRow label="Data emiterii">
@@ -85,7 +85,14 @@ stories.add(
 const cases = getCases({
   actions: [
     [],
-    [{ id: "singleAction", name: "Acțiune", onClick: action("onClick") }],
+    [
+      {
+        id: "singleAction",
+        name: "Acțiune",
+        isLoading: true,
+        onClick: action("onClick"),
+      },
+    ],
     recordActions,
   ],
   breadcrumbs: [recordBreadcrumbs],

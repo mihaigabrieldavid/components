@@ -1,20 +1,30 @@
 import {
   EuiBreadcrumb,
+  EuiButtonIcon,
+  EuiContextMenuItem,
+  EuiContextMenuPanel,
   EuiEmptyPrompt,
   EuiFlexGroup,
   EuiFlexItem,
   EuiHeaderBreadcrumbs,
+  EuiPopover,
   EuiSpacer,
   EuiTitle,
   useEuiI18n,
 } from "@elastic/eui";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { capitalizeFirstLetter } from "../utils";
 import { ErrorStatus } from "./ErrorStatus";
 import { LoadingStatus } from "./LoadingStatus";
 import { PermissionButton } from "./PermissionButton";
 import { RestrictedViewStatus } from "./RestrictedViewStatus";
 import { UpgradeRequiredStatus } from "./UpgradeRequiredStatus";
+
+export type RecordsAction = {
+  id: string;
+  name: string;
+  onClick: () => void;
+};
 
 export type RecordsProps = {
   itemText: string;
@@ -31,6 +41,8 @@ export type RecordsProps = {
     | "empty"
     | "loaded"
     | "upgradeRequired";
+  actions: RecordsAction[];
+  initialIsPopoverOpen: boolean;
   onCreate: () => void;
   onUpgrade: () => void;
 };
@@ -44,6 +56,8 @@ export const Records = ({
   status,
   breadcrumbs,
   children,
+  actions,
+  initialIsPopoverOpen,
   onCreate,
   onUpgrade,
 }: RecordsProps) => {
@@ -51,6 +65,23 @@ export const Records = ({
   const startCreating = useEuiI18n("records.startCreating", "Începe să creezi");
   const now = useEuiI18n("records.now", "Acum");
   const title = capitalizeFirstLetter(itemsText);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(initialIsPopoverOpen);
+
+  const handlePopoverOpen = () => {
+    setIsPopoverOpen(true);
+  };
+
+  const handlePopoverClose = () => {
+    setIsPopoverOpen(false);
+  };
+
+  const handlePopoverToggle = () => {
+    if (isPopoverOpen) {
+      handlePopoverClose();
+    } else {
+      handlePopoverOpen();
+    }
+  };
 
   return (
     <EuiFlexItem grow={false}>
@@ -70,10 +101,46 @@ export const Records = ({
         gutterSize="none"
       >
         <EuiFlexItem grow={true}>
-          <EuiTitle size="m">
-            <h1 style={{ lineHeight: "40px", height: 40 }}>{title}</h1>
-          </EuiTitle>
+          <EuiFlexGroup
+            gutterSize="none"
+            responsive={false}
+            alignItems="center"
+          >
+            <EuiTitle size="m">
+              <h1 style={{ lineHeight: "40px", marginRight: 12 }}>{title}</h1>
+            </EuiTitle>
+            {status === "loaded" && actions.length > 0 && (
+              <EuiPopover
+                ownFocus={false}
+                button={
+                  <EuiButtonIcon
+                    iconType="boxesVertical"
+                    onClick={handlePopoverToggle}
+                  />
+                }
+                isOpen={isPopoverOpen}
+                closePopover={handlePopoverClose}
+                panelPaddingSize="none"
+                anchorPosition="downCenter"
+              >
+                <EuiContextMenuPanel
+                  size="s"
+                  items={actions.map(({ id, name, onClick }) => (
+                    <EuiContextMenuItem
+                      key={id}
+                      onClick={() => {
+                        onClick();
+                      }}
+                    >
+                      {name}
+                    </EuiContextMenuItem>
+                  ))}
+                />
+              </EuiPopover>
+            )}
+          </EuiFlexGroup>
         </EuiFlexItem>
+
         {status === "loaded" && (
           <EuiFlexItem grow={false}>
             <div>

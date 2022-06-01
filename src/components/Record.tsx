@@ -24,6 +24,7 @@ import { UpgradeRequiredStatus } from "./UpgradeRequiredStatus";
 export type RecordAction = {
   id: string;
   name: string;
+  isLoading: boolean;
   onClick: () => void;
 };
 
@@ -107,7 +108,7 @@ export const Record = ({
       >
         <EuiFlexItem grow={true}>
           <EuiTitle size="m">
-            <h1 style={{ lineHeight: "40px", height: 40 }}>{title}</h1>
+            <h1 style={{ lineHeight: "40px" }}>{title}</h1>
           </EuiTitle>
         </EuiFlexItem>
 
@@ -147,10 +148,11 @@ export const Record = ({
               </EuiPopover>
             )}
             {actions.length === 1 &&
-              actions.map(({ id, name, onClick }) => (
+              actions.map(({ id, name, isLoading, onClick }) => (
                 <div key={id}>
                   <EuiButton
                     fill={true}
+                    isLoading={isLoading}
                     onClick={() => {
                       onClick();
                     }}

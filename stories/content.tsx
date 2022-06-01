@@ -243,9 +243,48 @@ export const recordsBreadcrumbs: EuiBreadcrumb[] = [
 ];
 
 export const recordActions = [
-  { id: "copy", name: "Copiază", onClick: action("onClick") },
-  { id: "edit", name: "Editează", onClick: action("onClick") },
-  { id: "share", name: "Distribuie", onClick: action("onClick") },
+  { id: "copy", name: "Copiază", isLoading: false, onClick: action("onClick") },
+  {
+    id: "edit",
+    name: "Editează",
+    isLoading: false,
+    onClick: action("onClick"),
+  },
+  {
+    id: "share",
+    name: "Distribuie",
+    isLoading: false,
+    onClick: action("onClick"),
+  },
+];
+
+export const recordsTableActions = [
+  {
+    id: "send",
+    name: "Trimite pe email",
+    isLoading: true,
+    onClick: action("onClick"),
+  },
+  {
+    id: "download",
+    name: "Descarcă pdf",
+    isLoading: false,
+    onClick: action("onClick"),
+  },
+  {
+    id: "generate",
+    name: "Generează factură din proformă",
+    isLoading: false,
+    onClick: action("onClick"),
+  },
+];
+
+export const recordsActions = [
+  {
+    id: "export",
+    name: "Export",
+    onClick: action("onClick"),
+  },
 ];
 
 export const recordBreadcrumbs: EuiBreadcrumb[] = [
@@ -267,6 +306,28 @@ export const recordBreadcrumbs: EuiBreadcrumb[] = [
   },
   {
     text: "Pagina curentă",
+  },
+];
+
+export const pageHeaderNotifications = [
+  {
+    id: "Notification 3",
+    title: "Notification 3",
+    createdAt: "2022-05-20T10:57:45+00:00",
+    isRead: false,
+  },
+  {
+    id: "Notification 2",
+    title:
+      "This is a very long notification title that is displayed on two rows",
+    createdAt: "2022-05-10T10:57:45+00:00",
+    isRead: false,
+  },
+  {
+    id: "Notification 1",
+    title: "Notification 1",
+    createdAt: "2022-05-10T10:57:45+00:00",
+    isRead: true,
   },
 ];
 
@@ -344,10 +405,10 @@ export const recordsTable = (
     selectedItems={[]}
     filters={recordsTableFilters}
     totalItemCount={100}
-    itemText="factură"
-    itemsText="facturi"
     canDelete={false}
     isDeleting={false}
+    actions={[]}
+    initialIsPopoverOpen={false}
     onPageIndexChange={action("onPageIndexChange")}
     onSelectedItemsChange={action("onSelectedItemsChange")}
     onDelete={action("onDelete")}

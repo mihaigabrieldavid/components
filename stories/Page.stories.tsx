@@ -22,6 +22,8 @@ import {
   pageBodySideNavItems,
   pageHeaderItems,
   pageHeaderLogoSrc,
+  pageHeaderNotifications,
+  recordsActions,
   recordsBreadcrumbs,
   recordsTableColumns,
   recordsTableFilters,
@@ -60,17 +62,20 @@ const items = [
 stories.add(`Example`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -101,6 +106,8 @@ stories.add(`Example`, () => (
           itemsText="facturi"
           canCreate={false}
           status="loaded"
+          actions={recordsActions}
+          initialIsPopoverOpen={false}
           onCreate={action("onCreate")}
           onUpgrade={action("onUpgrade")}
         >
@@ -113,10 +120,10 @@ stories.add(`Example`, () => (
             selectedItems={[]}
             filters={recordsTableFilters}
             totalItemCount={100}
-            itemText="factură"
-            itemsText="facturi"
             canDelete={false}
             isDeleting={false}
+            actions={[]}
+            initialIsPopoverOpen={false}
             onPageIndexChange={action("onPageIndexChange")}
             onSelectedItemsChange={action("onSelectedItemsChange")}
             onDelete={action("onDelete")}
@@ -131,17 +138,20 @@ stories.add(`Example`, () => (
 stories.add(`Example 2`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName=""
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#F4F6FA">
       <SignInForm
@@ -156,17 +166,20 @@ stories.add(`Example 2`, () => (
 stories.add(`Example 3`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="John Doe"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={[]}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -229,17 +242,20 @@ stories.add(`Example 3`, () => (
 stories.add(`Example 4`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -266,6 +282,8 @@ stories.add(`Example 4`, () => (
           itemsText="facturi"
           canCreate={false}
           status="empty"
+          actions={recordsActions}
+          initialIsPopoverOpen={false}
           onCreate={action("onCreate")}
           onUpgrade={action("onUpgrade")}
         >
@@ -279,17 +297,20 @@ stories.add(`Example 4`, () => (
 stories.add(`Example 5`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -316,6 +337,8 @@ stories.add(`Example 5`, () => (
           itemsText="facturi"
           canCreate={false}
           status="error"
+          actions={recordsActions}
+          initialIsPopoverOpen={false}
           onCreate={action("onCreate")}
           onUpgrade={action("onUpgrade")}
         >
@@ -329,17 +352,20 @@ stories.add(`Example 5`, () => (
 stories.add(`Example 6`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -387,17 +413,20 @@ stories.add(`Example 6`, () => (
 stories.add(`Example 7`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={[]}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -429,17 +458,20 @@ stories.add(`Example 7`, () => (
 stories.add(`Example 8`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <NotFoundStatus />
@@ -450,17 +482,20 @@ stories.add(`Example 8`, () => (
 stories.add(`Example 9`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#F4F6FA">
       <LoadingStatus />
@@ -471,17 +506,20 @@ stories.add(`Example 9`, () => (
 stories.add(`Example 10`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#F4F6FA">
       <AccountSecurityVerification status="success" />
@@ -492,17 +530,20 @@ stories.add(`Example 10`, () => (
 stories.add(`Example 11`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#F4F6FA">
       <InvitationToCollaborate
@@ -524,17 +565,20 @@ stories.add(`Example 11`, () => (
 stories.add(`Example 12`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="David Mihai-Gabriel"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#F4F6FA">
       <InvitationToCollaborate
@@ -556,17 +600,20 @@ stories.add(`Example 12`, () => (
 stories.add(`Example 13`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>
@@ -593,6 +640,8 @@ stories.add(`Example 13`, () => (
           itemsText="facturi"
           canCreate={false}
           status="upgradeRequired"
+          actions={[]}
+          initialIsPopoverOpen={false}
           onCreate={action("onCreate")}
           onUpgrade={action("onUpgrade")}
         >
@@ -606,17 +655,20 @@ stories.add(`Example 13`, () => (
 stories.add(`Example 14`, () => (
   <Page>
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
     <PageBody background="#FFFFFF">
       <PageBodySide>

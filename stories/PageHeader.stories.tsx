@@ -2,7 +2,11 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { addReadme } from "storybook-readme";
 import { PageHeader } from "../src/components/PageHeader";
-import { pageHeaderItems, pageHeaderLogoSrc } from "./content";
+import {
+  pageHeaderItems,
+  pageHeaderLogoSrc,
+  pageHeaderNotifications,
+} from "./content";
 import { getCases, getReadmeText, getStoryName } from "./utils";
 
 const stories = storiesOf("PageHeader", module);
@@ -13,17 +17,20 @@ stories.add(
   `Example`,
   () => (
     <PageHeader
-      initialIsFlyoutOpen={false}
+      initialIsNavigationFlyoutOpen={false}
+      initialIsNotificationsFlyoutOpen={false}
       initialIsPopoverOpen={false}
       userName="Mihai-Gabriel David"
       logoSrc={pageHeaderLogoSrc}
       items={pageHeaderItems}
+      notifications={pageHeaderNotifications}
       onMyAccount={action("onMyAccount")}
       onSignOut={action("onSignOut")}
       onSignIn={action("onSignIn")}
       onTryFree={action("onTryFree")}
       onApplication={action("onApplication")}
       onLogo={action("onLogo")}
+      onNotificationsRead={action("onNotificationsRead")}
     />
   ),
   {
@@ -35,6 +42,9 @@ stories.add(
           "pageHeader.signIn",
           "pageHeader.tryFree",
           "pageHeader.application",
+          "pageHeader.notifications",
+          "pageHeader.locale",
+          "pageHeader.noNotificationsText",
         ],
       }),
     },
@@ -42,10 +52,12 @@ stories.add(
 );
 
 const cases = getCases({
+  notifications: [[], pageHeaderNotifications],
   items: [pageHeaderItems],
   logoSrc: [pageHeaderLogoSrc],
   userName: ["", "Mihai-Gabriel David"],
-  initialIsFlyoutOpen: [true, false],
+  initialIsNavigationFlyoutOpen: [true, false],
+  initialIsNotificationsFlyoutOpen: [true, false],
   initialIsPopoverOpen: [true, false],
   onMyAccount: [action("onMyAccount")],
   onSignOut: [action("onSignOut")],
@@ -53,6 +65,7 @@ const cases = getCases({
   onTryFree: [action("onTryFree")],
   onApplication: [action("onApplication")],
   onLogo: [action("onLogo")],
+  onNotificationsRead: [action("onNotificationsRead")],
 });
 
 cases.forEach((props: any) => {

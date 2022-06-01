@@ -31,6 +31,7 @@ export const i18nMapping = {
     "records.now": "Now",
     "recordsTable.search": "Search",
     "recordsTable.delete": "Delete",
+    "recordsTable.actions": "Actions",
     "signInForm.title": "Access your account",
     "signInForm.email": "Email",
     "signInForm.emailText": "Please use a valid email",
@@ -72,6 +73,9 @@ export const i18nMapping = {
     "pageHeader.signIn": "Sign in",
     "pageHeader.tryFree": "Try free",
     "pageHeader.application": "Application",
+    "pageHeader.notifications": "Notifications",
+    "pageHeader.locale": "en",
+    "pageHeader.noNotificationsText": "You currently have no notifications",
     "updatePasswordForm.title": "Enter a new password",
     "updatePasswordForm.password": "Password",
     "updatePasswordForm.passwordText":
