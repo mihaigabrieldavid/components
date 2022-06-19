@@ -11,7 +11,7 @@ export const PageBodySide = ({ children }: PageBodySideProps) => {
       <EuiShowFor sizes={["m", "l", "xl"]}>
         <EuiFlexItem
           grow={false}
-          css={{
+          style={{
             paddingBottom: 16,
             paddingRight: 32,
             width: 230,
@@ -28,7 +28,7 @@ export const PageBodySide = ({ children }: PageBodySideProps) => {
           alignItems="center"
           justifyContent="spaceBetween"
           gutterSize="none"
-          css={{
+          style={{
             paddingBottom: 32,
           }}
         >

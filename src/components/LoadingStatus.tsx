@@ -9,7 +9,7 @@ export const LoadingStatus = () => {
             <EuiLoadingSpinner size="xl" />
           </div>
         }
-        css={{ width: "100%", maxWidth: "100%" }}
+        style={{ width: "100%", maxWidth: "100%" }}
       />
     </EuiFlexGroup>
   );

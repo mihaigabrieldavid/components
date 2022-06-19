@@ -6,5 +6,5 @@ export type PageProps = {
 };
 
 export const Page = ({ children }: PageProps) => {
-  return <EuiFlexItem css={{ height: "100%" }}>{children}</EuiFlexItem>;
+  return <EuiFlexItem style={{ height: "100%" }}>{children}</EuiFlexItem>;
 };

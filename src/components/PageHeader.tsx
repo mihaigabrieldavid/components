@@ -167,7 +167,7 @@ export const PageHeader = ({
               <h2>{notificationsText}</h2>
             </EuiTitle>
           </EuiFlyoutHeader>
-          <EuiFlyoutBody css={{ cursor: "default" }}>
+          <EuiFlyoutBody style={{ cursor: "default" }}>
             {notifications.length === 0 && (
               <EuiText>{noNotificationsText}</EuiText>
             )}
@@ -175,7 +175,7 @@ export const PageHeader = ({
               <EuiFlexGroup
                 gutterSize="none"
                 responsive={false}
-                css={{ marginBottom: 16 }}
+                style={{ marginBottom: 16 }}
               >
                 <EuiHealth color={isRead ? "subdued" : "primary"}>
                   <EuiFlexGroup
@@ -183,7 +183,7 @@ export const PageHeader = ({
                     gutterSize="none"
                     responsive={false}
                   >
-                    <EuiFlexItem css={{ fontWeight: isRead ? 400 : 600 }}>
+                    <EuiFlexItem style={{ fontWeight: isRead ? 400 : 600 }}>
                       {title}
                     </EuiFlexItem>
                     <EuiFlexItem>
@@ -197,7 +197,7 @@ export const PageHeader = ({
         </EuiFlyout>
       )}
       <EuiFlexItem
-        css={{
+        style={{
           background: "#FFFFFF",
           borderBottom: "1px solid #D3DAE6",
           alignItems: "center",
@@ -207,7 +207,7 @@ export const PageHeader = ({
         <EuiFlexGroup
           gutterSize="none"
           responsive={false}
-          css={{
+          style={{
             width: "100%",
             maxWidth: 1280,
             padding: "16px 8px 16px 14px",
@@ -224,11 +224,11 @@ export const PageHeader = ({
                 />
               </EuiFlexItem>
               <EuiShowFor sizes={["l", "xl"]}>
-                <EuiFlexItem grow={false} css={{ marginLeft: 16 }}>
+                <EuiFlexItem grow={false} style={{ marginLeft: 16 }}>
                   <EuiHeaderLinks>
                     {items.map(({ id, name, onClick }) => (
                       <EuiHeaderLink
-                        css={{ fontWeight: "bold" }}
+                        style={{ fontWeight: "bold" }}
                         key={id}
                         onClick={() => {
                           onClick();
@@ -271,12 +271,12 @@ export const PageHeader = ({
                         gutterSize="none"
                         responsive={false}
                         direction="column"
-                        css={{ overflow: "hidden" }}
+                        style={{ overflow: "hidden" }}
                       >
                         {userName && (
                           <EuiFlexItem
                             grow={false}
-                            css={{
+                            style={{
                               padding: 16,
                               borderBottom: "1px solid #D3DAE6",
                             }}
@@ -289,9 +289,9 @@ export const PageHeader = ({
                               <EuiFlexItem grow={false}>
                                 <EuiAvatar name={userName} size="m" />
                               </EuiFlexItem>
-                              <EuiFlexItem css={{ paddingLeft: 8 }}>
+                              <EuiFlexItem style={{ paddingLeft: 8 }}>
                                 <EuiText
-                                  css={{
+                                  style={{
                                     marginBottom: 8,
                                     marginTop: 4,
                                     fontWeight: "bold",
@@ -301,7 +301,7 @@ export const PageHeader = ({
                                 </EuiText>
                                 <div>
                                   <EuiLink
-                                    css={{ marginBottom: 8 }}
+                                    style={{ marginBottom: 8 }}
                                     onClick={handleMyAccount}
                                   >
                                     {myAccountText}
@@ -318,13 +318,13 @@ export const PageHeader = ({
                         )}
                         <EuiFlexItem
                           className="eui-yScroll"
-                          css={{ padding: 16 }}
+                          style={{ padding: 16 }}
                         >
                           {items.map(({ id, name, onClick }) => (
                             <div key={id}>
                               <EuiLink
                                 color="text"
-                                css={{ padding: 8, fontWeight: "bold" }}
+                                style={{ padding: 8, fontWeight: "bold" }}
                                 onClick={() => {
                                   onClick();
                                   handleNavigationFlyoutClose();
@@ -337,12 +337,15 @@ export const PageHeader = ({
                         </EuiFlexItem>
                         <EuiFlexItem
                           grow={false}
-                          css={{ padding: 16, borderTop: "1px solid #D3DAE6" }}
+                          style={{
+                            padding: 16,
+                            borderTop: "1px solid #D3DAE6",
+                          }}
                         >
                           {!userName && (
                             <>
                               <EuiButton
-                                css={{ marginBottom: 8 }}
+                                style={{ marginBottom: 8 }}
                                 onClick={handleSignIn}
                               >
                                 {signInText}
@@ -368,7 +371,7 @@ export const PageHeader = ({
                   <EuiFlexItem>
                     <div>
                       <EuiButton
-                        css={{ marginRight: 16 }}
+                        style={{ marginRight: 16 }}
                         onClick={handleSignIn}
                       >
                         {signInText}
@@ -383,7 +386,7 @@ export const PageHeader = ({
                   <>
                     <EuiFlexItem>
                       <EuiHeaderLink
-                        css={{ fontWeight: "bold" }}
+                        style={{ fontWeight: "bold" }}
                         onClick={handleApplication}
                       >
                         {applicationText}
@@ -420,7 +423,7 @@ export const PageHeader = ({
                               <EuiAvatar name={userName} size="xl" />
                             </EuiFlexItem>
                             <EuiFlexItem>
-                              <EuiText css={{ fontWeight: "bold" }}>
+                              <EuiText style={{ fontWeight: "bold" }}>
                                 {userName}
                               </EuiText>
                               <EuiSpacer size="m" />

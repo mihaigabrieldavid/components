@@ -53,7 +53,7 @@ export const EmailSentModal = ({
         </EuiText>
       </EuiModalBody>
       <EuiModalFooter>
-        <EuiButtonEmpty css={{ marginRight: 8 }} onClick={onClose}>
+        <EuiButtonEmpty style={{ marginRight: 8 }} onClick={onClose}>
           {back}
         </EuiButtonEmpty>
         <EuiButton color="primary" fill={true} onClick={onResend}>

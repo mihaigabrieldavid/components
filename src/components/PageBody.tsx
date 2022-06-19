@@ -9,12 +9,12 @@ export type PageBodyProps = {
 export const PageBody = ({ children, background }: PageBodyProps) => {
   return (
     <EuiFlexItem
-      css={{ background, alignItems: "center", flex: 1 }}
+      style={{ background, alignItems: "center", flex: 1 }}
       grow={true}
     >
       <EuiFlexGroup
         gutterSize="none"
-        css={{
+        style={{
           width: "100%",
           maxWidth: 1280,
           display: "flex",

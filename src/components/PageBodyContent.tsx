@@ -7,7 +7,7 @@ export type PageBodyContentProps = {
 
 export const PageBodyContent = ({ children }: PageBodyContentProps) => {
   return (
-    <EuiFlexItem grow={false} css={{ paddingBottom: 16, width: "100%" }}>
+    <EuiFlexItem grow={false} style={{ paddingBottom: 16, width: "100%" }}>
       {children}
     </EuiFlexItem>
   );

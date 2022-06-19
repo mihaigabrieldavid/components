@@ -95,7 +95,7 @@ export const PageBodySideNav = ({
           }
           onClose={handleFlyoutClose}
         >
-          <EuiFlexItem className="eui-yScroll" css={{ padding: 16 }}>
+          <EuiFlexItem className="eui-yScroll" style={{ padding: 16 }}>
             <EuiSideNav mobileBreakpoints={[]} items={sideNavItems} />
           </EuiFlexItem>
         </EuiCollapsibleNav>

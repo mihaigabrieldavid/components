@@ -80,15 +80,15 @@ export const InvitationToCollaborate = ({
         direction="column"
         gutterSize="none"
         responsive={false}
-        css={{ maxWidth: 430 }}
+        style={{ maxWidth: 430 }}
         alignItems="center"
       >
-        <EuiFlexItem css={{ marginBottom: 8 }}>
+        <EuiFlexItem style={{ marginBottom: 8 }}>
           <EuiAvatar
             size="xl"
             type="user"
             name={userName}
-            css={{ userSelect: "none" }}
+            style={{ userSelect: "none" }}
           />
         </EuiFlexItem>
         <EuiFlexItem className="eui-textCenter">
@@ -103,7 +103,7 @@ export const InvitationToCollaborate = ({
         </EuiFlexItem>
         <EuiFlexItem
           className="eui-textCenter"
-          css={{ marginTop: 8, marginBottom: 16 }}
+          style={{ marginTop: 8, marginBottom: 16 }}
         >
           <EuiText size="m">{message}</EuiText>
         </EuiFlexItem>
@@ -124,14 +124,17 @@ export const InvitationToCollaborate = ({
             />
           )}
           {(status === "accept" || status === "accepting") && (
-            <EuiPanel hasBorder={true} css={{ padding: 32 }}>
+            <EuiPanel hasBorder={true} style={{ padding: 32 }}>
               <EuiText size="m" className="eui-textCenter">
                 {body}
               </EuiText>
               <EuiSpacer size="l" />
               <EuiFlexGroup gutterSize="s" responsive={false}>
                 <EuiFlexItem>
-                  <EuiButtonEmpty css={{ marginRight: 8 }} onClick={onDecline}>
+                  <EuiButtonEmpty
+                    style={{ marginRight: 8 }}
+                    onClick={onDecline}
+                  >
                     {decline}
                   </EuiButtonEmpty>
                 </EuiFlexItem>

@@ -184,7 +184,7 @@ export const Records = ({
               {create} {firstItemText}
             </PermissionButton>
           }
-          css={{ width: "100%", maxWidth: "100%" }}
+          style={{ width: "100%", maxWidth: "100%" }}
         />
       )}
 

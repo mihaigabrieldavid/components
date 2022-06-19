@@ -58,7 +58,7 @@ export const ResetPasswordForm = ({
       justifyContent="center"
       responsive={false}
     >
-      <EuiPanel hasBorder={true} css={{ maxWidth: 430, padding: 32 }}>
+      <EuiPanel hasBorder={true} style={{ maxWidth: 430, padding: 32 }}>
         <EuiTitle size="m">
           <h1 className="eui-textCenter">{title}</h1>
         </EuiTitle>

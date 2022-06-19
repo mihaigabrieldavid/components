@@ -125,7 +125,7 @@ export const RecordsTable = <T extends {}>({
       <EuiSpacer size="m" />
 
       {selectedItems.length > 0 && items.length > 0 && (
-        <EuiFlexGroup gutterSize="none" responsive={false} css={{}}>
+        <EuiFlexGroup gutterSize="none" responsive={false} style={{}}>
           {actions.length > 1 && (
             <EuiPopover
               ownFocus={false}
@@ -134,7 +134,7 @@ export const RecordsTable = <T extends {}>({
                   fill={true}
                   iconType="arrowDown"
                   iconSide="right"
-                  css={{ marginRight: 12 }}
+                  style={{ marginRight: 12 }}
                   onClick={handlePopoverToggle}
                 >
                   {actionsText}
@@ -165,7 +165,7 @@ export const RecordsTable = <T extends {}>({
               <div key={id}>
                 <EuiButton
                   fill={true}
-                  css={{ marginRight: 12 }}
+                  style={{ marginRight: 12 }}
                   isLoading={isLoading}
                   onClick={() => {
                     onClick();

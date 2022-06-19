@@ -63,14 +63,15 @@ export const PageBodySideHeader = ({
           <EuiFlexGroup
             gutterSize="none"
             responsive={false}
-            css={{ cursor: "pointer" }}
+            alignItems="center"
+            style={{ cursor: "pointer" }}
             onClick={handlePopoverToggle}
           >
             <EuiAvatar
               size="s"
               type="space"
               name={item.name.substring(0, 1)}
-              css={{ userSelect: "none" }}
+              style={{ userSelect: "none" }}
             />
             <EuiTitle size="xxs">
               <div

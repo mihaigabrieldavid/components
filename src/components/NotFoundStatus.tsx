@@ -14,7 +14,7 @@ export const NotFoundStatus = () => {
         color="danger"
         title={<h2>{title}</h2>}
         body={<p>{body}</p>}
-        css={{ width: "100%", maxWidth: "100%" }}
+        style={{ width: "100%", maxWidth: "100%" }}
       />
     </EuiFlexGroup>
   );
